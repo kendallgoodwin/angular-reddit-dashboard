@@ -2,11 +2,11 @@ var app = angular.module('RedditDashApp', []);
 app.controller('DashCtrl', ['$scope', '$http', function($scope, $http) {
 
 	$scope.searchTerm = '';
-	$scope.title = '';
-	$scope.img = '';
-	$scope.score = 0;
-	$scope.comments = 0;
-	$scope.author = '';
+	// $scope.title = '';
+	// $scope.img = '';
+	// $scope.score = 0;
+	// $scope.comments = 0;
+	// $scope.author = '';
 	$scope.articleArray = []
 
 	$scope.search = function() {
@@ -23,10 +23,8 @@ app.controller('DashCtrl', ['$scope', '$http', function($scope, $http) {
 				var articles = articleData[i];
 				// console.log(articles);
 				$scope.articleArray.push(articles);
-				console.log($scope.articleArray);
+				// console.log($scope.articleArray);
 			} 
-
-			console.log($scope.articleArray[0].data.title)
 
 			// $scope.title = articleArray[0].data.title;
 			// $scope.img = articleData[0].data.thumbnail;

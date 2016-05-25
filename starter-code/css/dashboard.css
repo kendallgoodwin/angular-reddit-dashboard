@@ -101,6 +101,7 @@ body {
 }
 .placeholder {
   margin-bottom: 20px;
+  display: inline;
 }
 .placeholder img {
   display: inline-block;
