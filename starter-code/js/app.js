@@ -1,13 +1,15 @@
 var app = angular.module('RedditDashApp', []);
 app.controller('DashCtrl', ['$scope', '$http', function($scope, $http) {
-
+	if(localStorage.getItem('hist')){
+		$scope.history = JSON.parse(localStorage.getItem("hist"));
+	}else{
+		$scope.history=[];
+	}
+	// $scope.items = JSON.parse("history")
 	$scope.searchTerm = '';
-	// $scope.title = '';
-	// $scope.img = '';
-	// $scope.score = 0;
-	// $scope.comments = 0;
-	// $scope.author = '';
-	$scope.articleArray = []
+	$scope.articleArray = [];
+
+	
 
 	$scope.search = function() {
 		var req = {
@@ -26,12 +28,9 @@ app.controller('DashCtrl', ['$scope', '$http', function($scope, $http) {
 				// console.log($scope.articleArray);
 			} 
 
-			// $scope.title = articleArray[0].data.title;
-			// $scope.img = articleData[0].data.thumbnail;
-			// $scope.score = articleData[0].data.score;
-			// $scope.comments = articleData[0].data.num_comments;
-			// $scope.author = articleData[0].data.author;
-
+			$scope.history.push($scope.searchTerm);
+			localStorage.setItem("hist", JSON.stringify($scope.history));
+			console.log(localStorage.getItem('hist'))
 
 		}, function error(res) {
 			console.log(res);
