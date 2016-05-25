@@ -1,6 +1,8 @@
 var app = angular.module('RedditDashApp', []);
 app.controller('DashCtrl', ['$scope', '$http', function($scope, $http) {
 
+	$scope.primary = true;
+	$scope.small = true;
 	
 	if(localStorage.getItem('hist')){
 		$scope.history = JSON.parse(localStorage.getItem("hist"));
