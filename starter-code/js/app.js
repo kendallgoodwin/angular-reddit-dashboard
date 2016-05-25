@@ -7,6 +7,7 @@ app.controller('DashCtrl', ['$scope', '$http', function($scope, $http) {
 	$scope.score = 0;
 	$scope.comments = 0;
 	$scope.author = '';
+	$scope.articleArray = []
 
 	$scope.search = function() {
 		var req = {
@@ -15,18 +16,23 @@ app.controller('DashCtrl', ['$scope', '$http', function($scope, $http) {
 		}
 		$http(req).then(function success(res) {
 			var redditData = res.data;
-			console.log(redditData);
+			var articleData = redditData.data.children
+			// console.log(redditData);
 
-			$scope.title = redditData.data.children[0].data.title;
-			$scope.img = redditData.data.children[0].data.thumbnail;
-			$scope.score = redditData.data.children[0].data.score;
-			$scope.comments = redditData.data.children[0].data.num_comments;
-			$scope.author = redditData.data.children[0].data.author;
+			for (var i = 0; i < articleData.length; i++) {
+				var articles = articleData[i];
+				// console.log(articles);
+				$scope.articleArray.push(articles);
+				console.log($scope.articleArray);
+			} 
 
+			console.log($scope.articleArray[0].data.title)
 
-			console.log($scope.title);
-			console.log($scope.score);
-			console.log($scope.comments)
+			// $scope.title = articleArray[0].data.title;
+			// $scope.img = articleData[0].data.thumbnail;
+			// $scope.score = articleData[0].data.score;
+			// $scope.comments = articleData[0].data.num_comments;
+			// $scope.author = articleData[0].data.author;
 
 
 		}, function error(res) {
