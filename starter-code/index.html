@@ -41,7 +41,7 @@
           <h4>History</h4>
           <ul class="nav nav-sidebar">
             <li class="active"><a href="" class="deletex">x</a><a href="" ng-model="searchTerm">{{searchTerm}}</a></li>
-            <li ng-repeat="item in history track by $index"><a href="" class="deletex">x</a><a href="">{{item}}</a></li>
+            <li ng-repeat="item in history track by $index"><a href="" ng-click="remove($index)" class="deletex">x</a><a href="" ng-click="research(item)">{{item}}</a></li>
 <!--             <li><a href="" class="deletex">x</a><a href="">Item 2</a></li>
             <li><a href="" class="deletex">x</a><a href="">Item 3</a></li>
             <li><a href="" class="deletex">x</a><a href="">Item ...etc</a></li> -->
@@ -49,8 +49,8 @@
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h2 class="sub-header">Featured Posts</h2>
-          <div class="row placeholders" ng-repeat="article in articleArray | limitTo:4 track by $index">
-            <div class="col-xs-6 col-sm-3 placeholder">
+          <div class="row placeholders" >
+            <div class="col-xs-6 col-sm-3 placeholder" ng-repeat="article in articleArray | limitTo:4 track by $index">
               <img src="{{article.data.thumbnail}}" class="img-responsive">
               <h4>{{article.data.title}}</h4>
               <span class="text-muted">{{article.data.author}}</span>
