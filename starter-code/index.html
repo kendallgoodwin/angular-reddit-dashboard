@@ -67,7 +67,7 @@
                   <th>Title</th>
                   <th>Author</th>
                   <th>Comments</th>
-                  <th>Whatever</th>
+                  <th>Link</th>
                 </tr>
               </thead>
               <tbody>
@@ -76,7 +76,7 @@
                   <td>{{article.data.title}}</td>
                   <td>{{article.data.author}}</td>
                   <td>{{article.data.num_comments}}</td>
-                  <td></td>
+                  <td><a href="http://reddit.com{{article.data.permalink}}" target="_blank"><button class="btn btn-primary">View</button></a></td>
                 </tr>
               </tbody>
             </table>
